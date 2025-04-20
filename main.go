@@ -33,6 +33,9 @@ func main() {
 
 	def := r.Group("api")
 	def.GET("categories", handlers.GetCategories(db))
+	def.GET("news", handlers.GetNews(db))
+	def.POST("news", handlers.SetNews(db))
+
 	def.GET("pages/:id", handlers.GetPage(db))
 
 	if err := r.Run(); err != nil {
